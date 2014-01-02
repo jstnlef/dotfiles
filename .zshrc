@@ -14,3 +14,8 @@ VIRTUAL_ENV_DISABLE_PROMPT=true
 plugins=(git sublime python)
 
 source $ZSH/oh-my-zsh.sh
+
+# autocomplete man pages
+zstyle ':completion:*:manuals'   separate-sections true
+zstyle ':completion:*:manuals.*' insert-sections true
+zstyle ':completion:*:man:*'     menu yes select
