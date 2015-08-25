@@ -11,6 +11,9 @@ alias killpyc="rm **/*.pyc"
 alias clpython="ipython --profile=cloudlock"
 alias glog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
+# Cleans up already merged branches in a local git repository
+alias cleanupmerged='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+
 # color man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
