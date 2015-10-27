@@ -5,3 +5,5 @@
 	name = Justin LeFebvre
 [push]
 	default = simple
+[commit]
+	template = .git_commit_msg.txt
