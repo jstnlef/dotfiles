@@ -2,7 +2,6 @@ export PATH="$HOME/local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR=`which vim`
 export PAGER=less
 export GOPATH=~/gowork
-export HOMEBREW_GITHUB_API_TOKEN=3ac36dee40d18b51fabf42e384b5c80f2faf6905
 
 alias ls='ls -G'
 alias less="less -R"
