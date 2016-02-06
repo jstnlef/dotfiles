@@ -1,7 +1,8 @@
-export PATH="$HOME/local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/local/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR=`which vim`
 export PAGER=less
 export GOPATH=~/gowork
+export RUST_SRC_PATH=$HOME/Projects/rust/src
 
 alias ls='ls -G'
 alias less="less -R"
