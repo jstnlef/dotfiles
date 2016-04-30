@@ -7,3 +7,14 @@
 	default = simple
 [commit]
 	template = /Users/jstnlef/.dotfiles/.git_commit_msg.txt
+[alias]
+	branches = branch -a
+	tags = tag
+	stashes = stash list
+	unstage = reset HEAD --
+	discard = checkout --
+	uncommit = reset --mixed HEAD~1
+	amend = commit --amend
+	nevermind = !git reset --hard HEAD && git clean -d -f
+	graph = log --graph -30 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+	precommit = diff --cached --diff-algorithm=minimal -w
