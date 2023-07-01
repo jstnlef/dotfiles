@@ -8,6 +8,7 @@ $PATH = [
   f'{$HOME}/local/bin',
   '/usr/local/bin',
   '/usr/local/sbin',
+  '/usr/local/share/dotnet',
   f'{$HOME}/.dotnet',
   f'{$HOME}/.dotnet/tools',
   '/usr/local/opt/llvm/bin'
