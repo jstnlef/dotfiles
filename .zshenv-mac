@@ -1,8 +1,18 @@
-export PATH="$HOME/.cargo/bin:$HOME/local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export VULKAN_SDK=$HOME/vulkan_sdk/macOS
+export PATH=$VULKAN_SDK/bin:$PATH
+export DYLD_LIBRARY_PATH=$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH
+export VK_ICD_FILENAMES=$VULKAN_SDK/etc/vulkan/icd.d/MoltenVK_icd.json
+export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
+
+export PATH="$HOME/Flutter/flutter/bin:$HOME/.cargo/bin:$HOME/.local/share/ponyup/bin:$HOME/local/bin:/usr/local/bin:/usr/local/sbin:$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
 export EDITOR=`which vim`
 export PAGER=less
-export GOPATH=~/gowork
+export GOPATH=~/Projects/go-projects
 export RUST_SRC_PATH=$HOME/Projects/rust/src
+
+export HOMEBREW_GITHUB_API_TOKEN=623f8e39e3dcbe84c3688d39a3c29c4f3b6393c3
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
 
 alias ls='ls -G'
 alias less="less -R"
@@ -13,9 +23,6 @@ alias glog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgr
 
 # Cleans up already merged branches in a local git repository
 alias cleanupmerged='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
-
-# Start up visual studio code from the command line
-function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
 # color man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'

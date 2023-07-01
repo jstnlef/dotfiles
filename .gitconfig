@@ -18,3 +18,10 @@
 	nevermind = !git reset --hard HEAD && git clean -d -f
 	graph = log --graph -30 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 	precommit = diff --cached --diff-algorithm=minimal -w
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = false

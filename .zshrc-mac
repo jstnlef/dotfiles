@@ -38,7 +38,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python sublime osx httpie)
+plugins=(git history python sublime osx httpie)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,3 +48,10 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 zstyle ':completion:*:man:*'      menu yes select
+
+PATH="/Users/jstnlef/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/jstnlef/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/jstnlef/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/jstnlef/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/jstnlef/perl5"; export PERL_MM_OPT;
+export PATH="/usr/local/opt/llvm/bin:$PATH"
