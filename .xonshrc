@@ -16,8 +16,6 @@ $GOPATH = f'{$HOME}/Projects/go-projects'
 $RUST_SRC_PATH = f'{$HOME}/Projects/rust/src'
 $ANDROID_HOME = f'{$HOME}/Library/Android/sdk'
 
-$HOMEBREW_GITHUB_API_TOKEN = '623f8e39e3dcbe84c3688d39a3c29c4f3b6393c3'
-
 # Aliases
 aliases['l'] = ['ls', '-Gla']
 
