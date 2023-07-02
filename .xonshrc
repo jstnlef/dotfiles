@@ -46,7 +46,7 @@ $LESS_TERMCAP_ue = "\033[0m"         # end underline
 $PL_PROMPT='cwd>virtualenv>branch'
 $PL_RPROMPT = '!'  # for no toolbar
 $PL_TOOLBAR = '!'
-xontrib load coreutils powerline2
+xontrib load coreutils powerline2 jedi
 
 $PL_COLORS['virtualenv'] = ("BLACK", "MAGENTA")
 $PL_COLORS['cwd'] = ('BLACK', '#3F7FBF')
