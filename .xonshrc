@@ -1,3 +1,8 @@
+$PROMPT = '{env_name}{BOLD_GREEN}{user}@{hostname} {BOLD_BLUE}{cwd}{RESET}{gitstatus: {}} {RED}{last_return_code_if_nonzero:[{BOLD_INTENSE_RED}{}{RED}] }{RESET}{BOLD_BLUE}{prompt_end}{RESET} '
+$PROMPT_FIELDS['gitstatus.branch'].prefix = "{CYAN}\ue0a0"
+$PROMPT_FIELDS['gitstatus.changed'].prefix = "{YELLOW}+"
+$PROMPT_FIELDS['gitstatus.staged'].prefix = "{YELLOW}●"
+
 $XONSH_COLOR_STYLE = 'monokai'
 $EDITOR = $(which vim)
 
@@ -43,13 +48,6 @@ $LESS_TERMCAP_us = "\033[00;36m"     # begin underline
 $LESS_TERMCAP_ue = "\033[0m"         # end underline
 
 # Xontrib
-$PL_PROMPT='cwd>virtualenv>branch'
-$PL_RPROMPT = '!'  # for no toolbar
-$PL_TOOLBAR = '!'
-xontrib load coreutils powerline2 jedi whole_word_jumping
-
-$PL_COLORS['virtualenv'] = ("BLACK", "MAGENTA")
-$PL_COLORS['cwd'] = ('BLACK', '#3F7FBF')
-$PL_COLORS['branch'] = ('BLACK')
+xontrib load coreutils jedi whole_word_jumping
 
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
