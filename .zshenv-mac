@@ -1,14 +1,10 @@
-export VULKAN_SDK=$HOME/vulkan_sdk/macOS
-export PATH=$VULKAN_SDK/bin:$PATH
-export DYLD_LIBRARY_PATH=$VULKAN_SDK/lib:$DYLD_LIBRARY_PATH
-export VK_ICD_FILENAMES=$VULKAN_SDK/etc/vulkan/icd.d/MoltenVK_icd.json
-export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d
-
-export PATH="$HOME/Flutter/flutter/bin:$HOME/.cargo/bin:$HOME/.local/share/ponyup/bin:$HOME/local/bin:/usr/local/bin:/usr/local/sbin:$HOME/.dotnet:$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/.cargo/bin:$HOME/Projects/BeamableBackend/bin:$HOME/local/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR=`which vim`
 export PAGER=less
 export GOPATH=~/Projects/go-projects
 export RUST_SRC_PATH=$HOME/Projects/rust/src
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.vault-pass.txt
+export NUGET_PLUGIN_PATHS="$HOME/.nuget/plugins/netcore/AWS.CodeArtifact.NuGetCredentialProvider/AWS.CodeArtifact.NuGetCredentialProvider.dll"
 
 export HOMEBREW_GITHUB_API_TOKEN=623f8e39e3dcbe84c3688d39a3c29c4f3b6393c3
 
@@ -18,11 +14,13 @@ alias ls='ls -G'
 alias less="less -R"
 alias vless='/opt/local/share/vim/vim73/macros/less.sh'
 alias killpyc="rm **/*.pyc"
-alias clpython="ipython --profile=cloudlock"
 alias glog="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 # Cleans up already merged branches in a local git repository
 alias cleanupmerged='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+
+# Start up visual studio code from the command line
+function code() { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
 # color man pages
 export LESS_TERMCAP_mb=$'\E[01;31m'
@@ -32,3 +30,40 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
+
+# Scala/Java home and executables
+export SCALA_HOME=/usr/local/Cellar/scala/2.11.8/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+
+# Docker
+export STACK_IP=platform-master
+function killDockerContainers() { docker rm -f $(docker ps -a -q) }
+function killDockerImages() { docker rmi -f $(docker images -q) }
+
+# AppNeta
+export APPNETA_ACCESS_KEY=e0bb40a0-a402-429c-bf7d-52778e6bfcc9
+
+# Service functions
+export PLATFORM=$HOME/Projects/BeamableBackend
+export RESTBASE=$PLATFORM/rest/base
+export RUN_PLATFORM_TESTS=true
+
+function rebuildCore() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl core; popd; }
+function rebuildPortal() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/portal; popd; }
+function rebuildRest() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl rest/base; popd; }
+function rebuildNotification() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/notification; popd; }
+function rebuildTutorial() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/tutorial; popd; }
+function rebuildChat() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/chat; popd; }
+function rebuildETL() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/etl; popd; }
+function rebuildMessaging() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/messaging; popd; }
+function rebuildAlliance() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/alliance; popd; }
+function rebuildTelemetry() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -Dmaven.test.skip=true -pl tools/telemetry; popd; }
+function rebuildPayments() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -pl tools/payments; popd; }
+function rebuildStats() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C clean install -pl tools/stats; popd; }
+
+function rebuildAllPlatform() { pushd .; builtin cd "$PLATFORM"; mvn -T 1C install -Dmaven.test.skip=true -DskipTests; popd; }
+
+# Android signing passwords
+export STORE_PASSWD=Ps3VYTsH52beywb4
+export KEY_PASSWD=2Dj5Ex6CdTRXTEPc
+
