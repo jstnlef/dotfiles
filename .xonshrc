@@ -9,18 +9,22 @@ $EDITOR = $(which vim)
 # Paths
 $PATH = [
   f'{$HOME}/.cargo/bin',
-  f'{$HOME}/.local/share/ponyup/bin',
+  f'{$HOME}/Projects/BeamableBackend/bin',
   f'{$HOME}/local/bin',
   '/usr/local/bin',
   '/usr/local/sbin',
   '/usr/local/share/dotnet',
-  f'{$HOME}/.dotnet',
-  f'{$HOME}/.dotnet/tools',
-  '/usr/local/opt/llvm/bin'
 ] + $PATH
 $GOPATH = f'{$HOME}/Projects/go-projects'
 $RUST_SRC_PATH = f'{$HOME}/Projects/rust/src'
 $ANDROID_HOME = f'{$HOME}/Library/Android/sdk'
+
+$SCALA_HOME = '/usr/local/Cellar/scala/2.11.8/'
+$JAVA_HOME = '/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
+
+# Android signing passwords
+$STORE_PASSWD="Ps3VYTsH52beywb4"
+$KEY_PASSWD="2Dj5Ex6CdTRXTEPc"
 
 # Aliases
 aliases['l'] = ['ls', '-Gla']
