@@ -48,6 +48,6 @@ $LESS_TERMCAP_us = "\033[00;36m"     # begin underline
 $LESS_TERMCAP_ue = "\033[0m"         # end underline
 
 # Xontrib
-xontrib load coreutils jedi whole_word_jumping
+xontrib load coreutils whole_word_jumping
 
 execx($(zoxide init xonsh), 'exec', __xonsh__.ctx, filename='zoxide')
